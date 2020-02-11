@@ -18,8 +18,8 @@ python manage.py migrate
 **Criando o super user.**  
 python manage.py createsuperuser
 
-
-
+**Instalando o rest framework.** 
+pip install djangorestframework
 
 
 
