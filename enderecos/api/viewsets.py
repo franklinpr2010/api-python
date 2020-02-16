@@ -1,10 +1,10 @@
 from rest_framework.viewsets import ModelViewSet
-from pontosturistico.api.serializers import PontoTuristicoSerializer
-from pontosturistico.models import PontoTuristico
+from enderecos.api.serializers import EnderecoSerializer
+from enderecos.models import Endereco
 
 
 # ViewSets define the view behavior.
-class PontoTuristicoViewSet(ModelViewSet):
-    queryset = PontoTuristico.objects.all()
+class EnderecoViewSet(ModelViewSet):
+    queryset = Endereco.objects.all()
     #serializer é como quer mostrar, quais os campos, você quer que inclua o json
-    serializer_class = PontoTuristicoSerializer
+    serializer_class = EnderecoSerializer

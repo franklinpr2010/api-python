@@ -1,10 +1,10 @@
 from rest_framework.serializers import ModelSerializer
-from pontosturistico.models import PontoTuristico
-from pontosturistico.models import PontoTuristico
+from enderecos.models import Endereco
 
 
 # Serializers define the API representation.
-class PontoTuristicoSerializer(ModelSerializer):
+class EnderecoSerializer(ModelSerializer):
     class Meta:
-        model = PontoTuristico
-        fields = ['nome', 'descricao']
+        model = Endereco
+        fields = ['linha1', 'linha2', 'cidade', 'estado', 'pais',
+                  'latitude', 'longitude']
