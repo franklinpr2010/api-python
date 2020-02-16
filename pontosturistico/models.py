@@ -14,4 +14,4 @@ class PontoTuristico(models.Model):
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.nome
