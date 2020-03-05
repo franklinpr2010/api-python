@@ -85,3 +85,16 @@ from atracoes.api.serializers import AtracoesSerializer
 from atracoes.models import Atracao
 ```
 
+**Quando implementa o ModelViewSet já existe todos os métodos.**
+
+```
+class ModelViewSet(mixins.CreateModelMixin,
+                   mixins.RetrieveModelMixin,
+                   mixins.UpdateModelMixin,
+                   mixins.DestroyModelMixin,
+                   mixins.ListModelMixin,
+                   GenericViewSet):
+```
+
+
+
