@@ -97,4 +97,17 @@ class ModelViewSet(mixins.CreateModelMixin,
 ```
 
 
+**Implementando Imagens no projeto.**  
+
+pip install Pillow
+
+Em Settings.py  
+#Pasta de imagens  
+MEDIA_ROOT = 'imagens'  
+MEDIA_URL = '/media/'  
+
+
+
+
+
 
