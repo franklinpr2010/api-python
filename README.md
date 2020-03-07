@@ -107,6 +107,43 @@ MEDIA_ROOT = 'imagens'
 MEDIA_URL = '/media/'  
 
 
+**Implementando os Filters.**  
+
+pip install django-filter  
+
+Em settings:  
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}  
+
+No ViewSet de Atrações colocar:
+
+#campos que quer que filtre
+filterset_fields = ['nome', 'descricao']
+
+
+**Implementando os SearchFilter.**  
+
+````
+#queryset = PontoTuristico.objects.all()
+#serializer é como quer mostrar, quais os campos, você quer que inclua o json
+serializer_class = PontoTuristicoSerializer
+filter_backends = (SearchFilter,)
+search_fields = ('nome', 'descricao')
+
+````
+
+http://localhost:8000/pontoturistico/?search=teste2
+
+
+    
+    
+
+
+
+
+
 
 
 
