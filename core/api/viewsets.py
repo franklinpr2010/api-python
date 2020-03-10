@@ -1,5 +1,7 @@
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from core.api.serializers import PontoTuristicoSerializer
@@ -11,6 +13,8 @@ class PontoTuristicoViewSet(ModelViewSet):
     #queryset = PontoTuristico.objects.all()
     #serializer é como quer mostrar, quais os campos, você quer que inclua o json
     serializer_class = PontoTuristicoSerializer
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication, )
     filter_backends = (SearchFilter,)
     search_fields = ('nome', 'descricao')
     #Alterando o comportamento padrão com o lookup field

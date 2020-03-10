@@ -53,10 +53,19 @@ Após isso digitar a URL no postman:
 
 ```
  127.0.0.1:8000/api-token-auth/
-
  username: ***********
  password: ***********
 ```
+
+Acesse as outras Urls pelo postman
+
+```
+ 127.0.0.1:8000/pontoturistico
+
+```
+
+Coloque o token gerado acima no header:
+Authorization: Token 8024973d38c65f79ba7301aa97b8e71b17673072
 
 
 
