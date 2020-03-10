@@ -13,19 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from pontosturistico.api.viewsets import PontoTuristicoViewSet
+
+from core.api.viewsets import PontoTuristicoViewSet
 from atracoes.api.viewsets import AtracoesViewSet
 from enderecos.api.viewsets import EnderecoViewSet
 from comentario.api.viewsets import ComentarioViewSet
 from avaliacoes.api.viewsets import AvaliacaoViewSet
-
+from pontosturisticos import settings
+#importanto a função de token
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
-router.register(r'pontoturistico', PontoTuristicoViewSet)
+#basename - quando o get_queryset é sobrescrito é necessário o basename para saber qual model ele vai falar
+router.register(r'pontoturistico', PontoTuristicoViewSet, basename='PontoTuristico')
 router.register(r'atracoes', AtracoesViewSet)
 router.register(r'enderecos', EnderecoViewSet)
 router.register(r'comentarios', ComentarioViewSet)
@@ -34,4 +39,5 @@ router.register(r'avaliacoes', AvaliacaoViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-]
+    path('api-token-auth/', obtain_auth_token),
+] + static(settings.MEDIA_URL, document_root=settings.STATIC_URL)

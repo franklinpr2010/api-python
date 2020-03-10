@@ -21,6 +21,46 @@ python manage.py createsuperuser
 **Instalando o rest framework.**   
 pip install djangorestframework
 
+**Aplicando o serviço de token.**
+
+Em Settings
+
+```
+ INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+
+```
+
+Em urls.py no projeto
+
+```
+    urlpatterns = [
+        path('', include(router.urls)),
+        path('admin/', admin.site.urls),
+        path(r'^api-token-auth/', obtain_auth_token),
+    ] + static(settings.MEDIA_URL, document_root=settings.STATIC_URL)
+
+```
+
+Após isso digitar a URL no postman:
+
+```
+ 127.0.0.1:8000/api-token-auth/
+
+ username: ***********
+ password: ***********
+```
+
+
+
+
 
 
 

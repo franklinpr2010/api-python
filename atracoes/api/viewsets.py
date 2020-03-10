@@ -8,3 +8,5 @@ class AtracoesViewSet(ModelViewSet):
     queryset = Atracao.objects.all()
     #serializer é como quer mostrar, quais os campos, você quer que inclua o json
     serializer_class = AtracoesSerializer
+    #campos que quer que filtre
+    filterset_fields = ['nome', 'descricao']
