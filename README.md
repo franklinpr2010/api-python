@@ -67,7 +67,7 @@ Acesse as outras Urls pelo postman
 Coloque o token gerado acima no header:
 Authorization: Token 8024973d38c65f79ba7301aa97b8e71b17673072
 
-
+**Obs: Pelo Django Admin pode dar autorização do que pode fazer na aplicação.**
 
 
 
